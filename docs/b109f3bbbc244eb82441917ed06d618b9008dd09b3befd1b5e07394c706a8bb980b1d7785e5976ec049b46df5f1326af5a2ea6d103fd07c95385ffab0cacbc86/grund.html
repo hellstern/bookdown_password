@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>A Minimal Book Example</title>
+  <title>Chapter 3 Grundlæggende R | A Minimal Book Example</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="A Minimal Book Example" />
+  <meta property="og:title" content="Chapter 3 Grundlæggende R | A Minimal Book Example" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A Minimal Book Example" />
+  <meta name="twitter:title" content="Chapter 3 Grundlæggende R | A Minimal Book Example" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="R-RStudio.html"/>
+<link rel="prev" href="R-RStudio.html"/>
+<link rel="next" href="pakker.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -184,29 +184,94 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">A Minimal Book Example</h1>
-<p class="author"><em>Yihui Xie</em></p>
-<p class="date"><em>2020-04-21</em></p>
+<div id="grund" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Grundlæggende R</h1>
+<p>Som alle andre programmeringssprog har R nogle forskellige regler for, hvordan koden skal bygges op – altså syntaksen for R.</p>
+<div id="navne" class="section level2">
+<h2><span class="header-section-number">3.1</span> Navne</h2>
+<p>”Navne” i R skal overholde nogle regler:</p>
+<ul>
+<li>Bogstaver – a til z – store og små. Du kan ikke bruge de danske tegn æøå</li>
+<li>Tal</li>
+<li>Tegnene ”.” og ”_”. Altså ikke mellemrum eller bindestreg</li>
+<li>Et navn kan ikke starte med et Tal, men skal starte med et bogstav eller et gyldigt tegn</li>
+<li>R er case-sensitiv. Der er forskel på store og små bogstaver</li>
+</ul>
 </div>
-<div id="prerequisites" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Prerequisites</h1>
-<p>This is a <em>sample</em> book written in <strong>Markdown</strong>. You can use anything that Pandoc’s Markdown supports, e.g., a math equation <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
-<p>The <strong>bookdown</strong> package can be installed from CRAN or Github:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)</a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="co"># or the development version</span></a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="co"># devtools::install_github(&quot;rstudio/bookdown&quot;)</span></a></code></pre></div>
-<p>Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading <code>#</code>.</p>
-<p>To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <a href="https://yihui.name/tinytex/" class="uri">https://yihui.name/tinytex/</a>.</p>
+<div id="variable-objekter" class="section level2">
+<h2><span class="header-section-number">3.2</span> Variable / Objekter</h2>
+<p>Alt hvad du kommer til at bruge i R vil blive gemt i Objekter, det kan være et enkelt tal eller et helt datasæt.
+I R skal du bruge ”&lt;-” for at gemme en værdi i et objekt. Mange andre programmeringssprog bruger ”=”</p>
+<pre><code>2 + 2                 # Beregn
+1:100                 # printer 1 til 100
+print(&quot;Hej med dig&quot;)
 
+x &lt;- 2                # Tildel x værdien 2
+x * 2
+x * x
+x + x
+x                     # Viser værdien af x
+
+y &lt;- c(6, 7, 8, 9, 10) # Gemmer 6 til 10 i variablen y
+# c() står for concatenate eller combine - Giver en vektor
+
+x + y   # x lagt sammen med y
+y
+x * 2  # Ganger alle elementer i x med 2 - LOOP uden at være et LOOP ?
+
+ls()   # Vis / List alle objekter</code></pre>
+</div>
+<div id="funktioner" class="section level2">
+<h2><span class="header-section-number">3.3</span> Funktioner</h2>
+<p>R har de samme funktioner som du måske kender fra Excel eller andre programmeringssprog.</p>
+<pre><code>length(y)     # Antallet af numre i vektoren
+min(y)        # Minimumsværdien
+max(y)        # Maksimumværdien
+median(y)     # Medianen
+sum(y)        # Summen
+mean(y)       # Gennemsnittet
+var(y)        # Variansen
+sd(y)         # Standardafvigelsen</code></pre>
+</div>
+<div id="logiske-operatorer" class="section level2">
+<h2><span class="header-section-number">3.4</span> Logiske operatorer</h2>
+<p>Meget af det du kommer til at arbejde med i R, vil kræve en eller anden form for logisk operator. Med en logisk operator finder du ud af om et udsagn er Sandt eller Falsk.</p>
+<pre><code>x == 2        # &quot;==&quot; betyder &quot;lig med&quot;
+x != 2        # &quot;!=&quot; betyder &quot;ikke lig med&quot;
+x &lt; 1         # &quot;&lt;&quot; betyder &quot;mindre end&quot;
+x &gt; 1         # &quot;&gt;&quot; betyder &quot;større end&quot;
+x &lt;= 2        # &quot;&lt;=&quot; betyder &quot;mindre eller lig med</code></pre>
+<p><em>Husk, at dette også gælder for de mapper, du arbejder med.</em></p>
+</div>
+<div id="hjælp" class="section level2">
+<h2><span class="header-section-number">3.5</span> Hjælp</h2>
+<p>Du kan få hjælp direkte i R ved at bruge nedenstående kommandoer:</p>
+<pre><code>help(&quot;mean&quot;) # Hjælp til en specifik funktion - mean
+help(&quot;plot&quot;)
+
+?mean 
+?plot
+
+# Hjælp til en specifik pakke - base og tidyverse
+help(package = &quot;base&quot;)
+help(package = &quot;tidyverse&quot;)</code></pre>
+<p>Hjælpen vises i vinduet nederst til højre</p>
+</div>
+<div id="working-directory" class="section level2">
+<h2><span class="header-section-number">3.6</span> Working Directory</h2>
+<p>R bruger en mappe som ”Working folder”. Det er nemmere at tilgå filer, der ligger i denne mappe.</p>
+<pre><code>getwd()
+setwd(&quot;C:/Users/Tue Hellstern/Documents/GitHub/r_webinar/r_kode/webinar_dag1&quot;)</code></pre>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="R-RStudio.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="R-RStudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pakker.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

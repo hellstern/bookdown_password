@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>A Minimal Book Example</title>
+  <title>Chapter 7 Demo Shiny | A Minimal Book Example</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="A Minimal Book Example" />
+  <meta property="og:title" content="Chapter 7 Demo Shiny | A Minimal Book Example" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A Minimal Book Example" />
+  <meta name="twitter:title" content="Chapter 7 Demo Shiny | A Minimal Book Example" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="R-RStudio.html"/>
+<link rel="prev" href="plots.html"/>
+<link rel="next" href="eksempel.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -184,29 +184,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">A Minimal Book Example</h1>
-<p class="author"><em>Yihui Xie</em></p>
-<p class="date"><em>2020-04-21</em></p>
+<div id="shiny" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Demo Shiny</h1>
+<p>Når du har lavet en ”analyse” i R vil det tit være en fordel at kunne dele denne med andre, det kan du gøre ved at sende dit R script og data, men det er nok ikke den mest brugervenlige måde.
+En anden ulighed er vise det på et website så det kan tilgås via en browser. Det kan du opnå via en R pakke der hedder shiny.
+Du kan finde en del eksempler på løsninger oprettet i shiny her: <a href="https://shiny.rstudio.com/gallery/#demos" target="_blank">shiny.rstudio.com/gallery/#demos</a></p>
+<p>Det er også muligt at afvikle de 11 eksempler der følger med shiny på følgende måde:</p>
+<pre><code># Shiny eksempler
+runExample(&quot;01_hello&quot;)
+runExample(&quot;02_text&quot;)
+runExample(&quot;03_reactivity&quot;)
+runExample(&quot;04_mpg&quot;)
+runExample(&quot;05_sliders&quot;)
+runExample(&quot;06_tabsets&quot;)
+runExample(&quot;07_widgets&quot;)
+runExample(&quot;08_html&quot;)
+runExample(&quot;09_upload&quot;)
+runExample(&quot;10_download&quot;)
+runExample(&quot;11_timer&quot;)</code></pre>
+<div id="struktur-af-en-shiny-app" class="section level2">
+<h2><span class="header-section-number">7.1</span> Struktur af en Shiny app</h2>
+<p>En Shiny App er ”samlet” i et enkelt script app.R som du kan afvikle.
+app.R består af tre dele:</p>
+<ul>
+<li>Userinterface (<strong>ui.R</strong>) - <em>Her styrer du layout af din applikation</em></li>
+<li>Server (<strong>server.R</strong>) - <em>Her definere du det der skal til for at opbygge din løsning</em></li>
+<li>Kald til shinyApp function - <em>Her bygges selev løsningen</em></li>
+</ul>
+<p>Du kan oprette en ny shiny App under:
+<strong>File – New File – Shiny Web App</strong>
+I dette vindue skal du indtaste navnet på din App og placeringen. Du har også mulighed for at vælge mellem, om din App skal opdeles i to filer, <strong>ui.R</strong> og <strong>server.R</strong>, eller om du vil have alt i en fil.</p>
+<p>Opdelingen i to filer giver dig de fleste muligheder og en bedre kontrol.</p>
+<p>Du får to filer der indeholder en demo løsning som du kan bruge som
+udgangspunkt for din egen løsning.</p>
 </div>
-<div id="prerequisites" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Prerequisites</h1>
-<p>This is a <em>sample</em> book written in <strong>Markdown</strong>. You can use anything that Pandoc’s Markdown supports, e.g., a math equation <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
-<p>The <strong>bookdown</strong> package can be installed from CRAN or Github:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)</a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="co"># or the development version</span></a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="co"># devtools::install_github(&quot;rstudio/bookdown&quot;)</span></a></code></pre></div>
-<p>Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading <code>#</code>.</p>
-<p>To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <a href="https://yihui.name/tinytex/" class="uri">https://yihui.name/tinytex/</a>.</p>
-
+<div id="pakker-1" class="section level2">
+<h2><span class="header-section-number">7.2</span> Pakker</h2>
+<p>Du skal have installeret og aktiveret <em>shiny</em> pakken:</p>
+<pre><code>install.packages(&quot;shiny&quot;)
+library(shiny)</code></pre>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="R-RStudio.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="plots.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="eksempel.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

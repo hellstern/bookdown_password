@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>A Minimal Book Example</title>
+  <title>Chapter 5 Data | A Minimal Book Example</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="A Minimal Book Example" />
+  <meta property="og:title" content="Chapter 5 Data | A Minimal Book Example" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A Minimal Book Example" />
+  <meta name="twitter:title" content="Chapter 5 Data | A Minimal Book Example" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="R-RStudio.html"/>
+<link rel="prev" href="pakker.html"/>
+<link rel="next" href="plots.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -184,29 +184,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">A Minimal Book Example</h1>
-<p class="author"><em>Yihui Xie</em></p>
-<p class="date"><em>2020-04-21</em></p>
+<div id="data" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Data</h1>
+<p>For at arbejde med data skal de importeres ind i R. Det er simpelt, hvis de filer der skal importeres ligger i R’s aktive bibliotek. Det er en god ide at organisere dine data inden de importeres, hvilket der findes mange gode værktøjer til.</p>
+<p>R kan importere fra de fleste formater, her vil jeg bruge; <strong>CSV</strong> og <strong>Excel</strong></p>
+<p>Du kan i RStudio vælge mellem at bruge den grafiske brugerflade (GUI) eller skrive den kode, du vil bruge til importen.</p>
+<div id="grafisk-gui" class="section level2">
+<h2><span class="header-section-number">5.1</span> Grafisk (GUI)</h2>
+<p>Fordelen ved at bruge den grafiske brugerflade er, at du ikke skal huske de forskellige importfunktione. Det ligner lidt import i f.eks. Excel.</p>
+<p><strong>Import af fra Excel</strong></p>
+<p>Når du vil importere data fra en Excel fil, kan du bruge: <strong>File &gt; Import Dataset &gt; From Excel</strong>
+Derefter vælger du den Excel fil, du vil importere.</p>
+<p><img src="img/import.png" /></p>
 </div>
-<div id="prerequisites" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Prerequisites</h1>
-<p>This is a <em>sample</em> book written in <strong>Markdown</strong>. You can use anything that Pandoc’s Markdown supports, e.g., a math equation <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
-<p>The <strong>bookdown</strong> package can be installed from CRAN or Github:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)</a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="co"># or the development version</span></a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="co"># devtools::install_github(&quot;rstudio/bookdown&quot;)</span></a></code></pre></div>
-<p>Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading <code>#</code>.</p>
-<p>To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <a href="https://yihui.name/tinytex/" class="uri">https://yihui.name/tinytex/</a>.</p>
+<div id="kode" class="section level2">
+<h2><span class="header-section-number">5.2</span> Kode</h2>
+<p>Du kan også fortage importen via R kode</p>
+<pre><code>bmi &lt;- read.csv(&quot;C:/Users/tuhe/Desktop/bmi.csv&quot;, header = TRUE, sep = &quot;;&quot;)      # Standard - ,
+bmi &lt;- read.csv2(&quot;C:/Users/tuhe/Desktop/bmi.csv&quot;, header = TRUE)                # Standard - ;
 
+salg &lt;- read_excel(&quot;webinar_data.xlsx&quot;)                          # Indlæser første ark
+salg &lt;- read_excel(&quot;webinar_data.xlsx&quot;, sheet = &quot;salgs_data&quot;)    # Indlæser arket &quot;salgs_data&quot;
+salg &lt;- read_excel(&quot;webinar_data.xlsx&quot;, sheet = 3)               # Indlæser ark 3 - Index nummer</code></pre>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="R-RStudio.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="pakker.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="plots.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
